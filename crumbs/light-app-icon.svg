@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="700pt"
+   height="700pt"
+   version="1.1"
+   viewBox="0 0 700 700"
+   id="svg22"
+   sodipodi:docname="noun-item-list-select-591149.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:export-filename="app-icon-512.png"
+   inkscape:export-xdpi="52.662857"
+   inkscape:export-ydpi="52.662857"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs26" />
+  <sodipodi:namedview
+     id="namedview24"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="pt"
+     showgrid="true"
+     inkscape:zoom="0.93964286"
+     inkscape:cx="466.13455"
+     inkscape:cy="466.13455"
+     inkscape:window-width="1920"
+     inkscape:window-height="1177"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg22">
+    <inkscape:grid
+       type="xygrid"
+       id="grid132" />
+  </sodipodi:namedview>
+  <g
+     id="g20"
+     transform="matrix(1.2152231,0,0,1.2152231,-68.543383,8.4913368)">
+    <path
+       d="m 555.33,448 v -56 l -112,74.668 112,74.664 v -56 h 74.668 V 448 Z"
+       id="path2" />
+    <path
+       d="m 70,18.668 h 149.33 v 149.33 H 70 Z"
+       id="path4" />
+    <path
+       d="M 256.67,18.668 H 406 v 149.33 H 256.67 Z"
+       id="path6" />
+    <path
+       d="m 443.33,18.668 h 149.33 v 149.33 H 443.33 Z"
+       id="path8" />
+    <path
+       d="M 70,205.33 H 219.33 V 354.66 H 70 Z"
+       id="path10" />
+    <path
+       d="M 256.67,205.33 H 406 V 354.66 H 256.67 Z"
+       id="path12" />
+    <path
+       d="M 443.33,205.33 H 592.66 V 354.66 H 443.33 Z"
+       id="path14" />
+    <path
+       d="M 70,392 H 219.33 V 541.33 H 70 Z"
+       id="path16" />
+    <path
+       d="M 256.67,392 H 406 V 541.33 H 256.67 Z"
+       id="path18" />
+  </g>
+</svg>
