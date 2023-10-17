@@ -157,6 +157,7 @@ public class XSPopupMenu extends JFrame {
 	}
 	
 	public XSPopupMenu(XSPopupMenu parentMenu, XSMenuItem menuSource, int menuId) {
+		super();
 		this.parentMenu = parentMenu;
 		this.menuSource = menuSource;
 		setUndecorated(true);
