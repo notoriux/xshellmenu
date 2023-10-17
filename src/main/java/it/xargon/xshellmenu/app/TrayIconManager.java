@@ -6,26 +6,27 @@ import java.awt.TrayIcon;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.nio.file.Path;
 
 import javax.swing.event.MouseInputAdapter;
 
 import it.xargon.xshellmenu.XShellMenuMainClass;
 import it.xargon.xshellmenu.app.gui.XSPopupMenu;
 import it.xargon.xshellmenu.app.misc.Utils;
-import it.xargon.xshellmenu.app.model.InMemoryMenuItem;
-import it.xargon.xshellmenu.app.model.MixMenuItem;
 import it.xargon.xshellmenu.app.model.XSMenuItem;
-import it.xargon.xshellmenu.app.model.filesystem.FileSystemMenuItem;
-import it.xargon.xshellmenu.app.model.filesystem.OpenFolderMenuItem;
+import it.xargon.xshellmenu.app.model.XSMenuRootProvider;
+import it.xargon.xshellmenu.app.model.base.InMemoryMenuItem;
+import it.xargon.xshellmenu.app.model.base.MixMenuItem;
+import it.xargon.xshellmenu.app.model.filesystem.FileSystemRootProvider;
 import it.xargon.xshellmenu.app.res.Resources;
 
 public class TrayIconManager {
-	private Path rootPath;
+	private String rootPath;
 	private SystemTray systemTray;
 	private TrayIcon trayIcon;
 	
 	private XSPopupMenu currentMenu;
+	
+	private XSMenuRootProvider fsProvider;
 	
 	private MouseInputAdapter mouseInputHandler = new MouseInputAdapter() {
 		@Override
@@ -42,20 +43,23 @@ public class TrayIconManager {
 		}
 	};
 
-	public TrayIconManager(Path rootPath) {
+	public TrayIconManager(String rootPath) {
+		this.fsProvider = new FileSystemRootProvider();
 		this.rootPath = rootPath;
 		this.systemTray = SystemTray.getSystemTray();
 		
-		this.trayIcon = new TrayIcon(Resources.appIconImage, "XShellMenu 0.3 - " + rootPath.toString());
+		this.trayIcon = new TrayIcon(Resources.appIconImage, "XShellMenu 0.0.4 - " + rootPath);
 		this.trayIcon.setImageAutoSize(true);
 		this.trayIcon.addMouseListener(mouseInputHandler);
 	}
 	
 	private XSPopupMenu generateRootMenu() {
+		XSMenuItem fsRootItem = fsProvider.getRootItem(rootPath);
+		
 		MixMenuItem rootMenu = new MixMenuItem("(root)")
-				.item(new OpenFolderMenuItem(rootPath))
+				.item(fsRootItem.getChild(MouseEvent.BUTTON3, 0)) //first item of a FS folder aux menu is always an "Open folder" action
 				.separator()
-				.children(new FileSystemMenuItem(rootPath), XSMenuItem.PRIMARY_MENU)
+				.children(fsRootItem, XSMenuItem.PRIMARY_MENU)
 				.separator()
 				.item(new InMemoryMenuItem("Quit", Resources.quitIcon, "Closes XShellMenu", this::closeTay));
 		XSPopupMenu popupMenu = new XSPopupMenu(null, rootMenu, XSMenuItem.PRIMARY_MENU);

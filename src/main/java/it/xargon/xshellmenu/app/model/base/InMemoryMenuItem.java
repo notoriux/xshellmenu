@@ -1,9 +1,10 @@
-package it.xargon.xshellmenu.app.model;
+package it.xargon.xshellmenu.app.model.base;
 
 import java.util.ArrayList;
 
 import javax.swing.Icon;
 
+import it.xargon.xshellmenu.app.model.XSMenuItem;
 import it.xargon.xshellmenu.app.res.Resources;
 
 public class InMemoryMenuItem implements XSMenuItem {

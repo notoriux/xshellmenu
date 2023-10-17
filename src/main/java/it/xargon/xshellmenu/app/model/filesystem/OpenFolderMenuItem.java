@@ -10,7 +10,7 @@ import it.xargon.xshellmenu.app.misc.Utils;
 import it.xargon.xshellmenu.app.model.XSMenuItem;
 import it.xargon.xshellmenu.app.res.Resources;
 
-public class OpenFolderMenuItem implements XSMenuItem {
+class OpenFolderMenuItem implements XSMenuItem {
 	private String label;
 	
 	private Path folderItemPath;

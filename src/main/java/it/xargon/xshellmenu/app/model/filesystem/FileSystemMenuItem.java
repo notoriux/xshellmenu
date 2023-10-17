@@ -18,7 +18,7 @@ import it.xargon.xshellmenu.app.misc.Utils.OperatingSystem;
 import it.xargon.xshellmenu.app.model.XSMenuItem;
 import it.xargon.xshellmenu.app.res.Resources;
 
-public class FileSystemMenuItem implements XSMenuItem {
+class FileSystemMenuItem implements XSMenuItem {
 	private String label;
 	private Icon icon;
 	private String tooltip = null;

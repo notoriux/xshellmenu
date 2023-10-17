@@ -1,9 +1,6 @@
 package it.xargon.xshellmenu;
 
 import java.awt.SystemTray;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.swing.SwingUtilities;
@@ -61,16 +58,8 @@ public class XShellMenuMainClass {
 			exitApplication(2);
 			return;			
 		}
-		
-		Path basePath = Paths.get(args[0]).normalize().toAbsolutePath();
-		
-		if (!Files.exists(basePath) || !Files.isDirectory(basePath)) {			
-			Utils.showErrorMessage("\"" + basePath.toString() + "\" does not exist or it's not a directory on the local filesystem", true);
-			exitApplication(3);
-			return;			
-		}
 
-		menuManager = new TrayIconManager(basePath);
+		menuManager = new TrayIconManager(args[0]);
 		initialized = true;
 	}
 	

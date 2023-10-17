@@ -10,7 +10,7 @@ import it.xargon.xshellmenu.app.misc.Utils;
 import it.xargon.xshellmenu.app.model.XSMenuItem;
 import it.xargon.xshellmenu.app.res.Resources;
 
-public class RunAsAdministratorMenuItem implements XSMenuItem {
+class RunAsAdministratorMenuItem implements XSMenuItem {
 	private String label;
 	
 	private Path fileItemPath;

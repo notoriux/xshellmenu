@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import it.xargon.xshellmenu.XShellMenuMainClass;
-import it.xargon.xshellmenu.app.model.InMemoryMenuItem;
+import it.xargon.xshellmenu.app.model.base.InMemoryMenuItem;
 
 public class Utils {
 	private Utils() {}
