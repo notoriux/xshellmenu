@@ -57,7 +57,7 @@ public class TrayIconManager {
 		this.menuProvider = rootProviders.get(provName);
 		
 		if (this.menuProvider == null) {
-			Utils.abortApplication("Error while fetching root menu", new IllegalStateException("Provider \"" + provName + "\" nots found"));
+			Utils.abortApplication("Error while fetching root menu", new IllegalStateException("Provider \"" + provName + "\" not found"));
 		}
 		
 		this.systemTray = SystemTray.getSystemTray();
