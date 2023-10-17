@@ -54,7 +54,14 @@ public class TrayIconManager {
 	}
 	
 	private XSPopupMenu generateRootMenu() {
-		XSMenuItem fsRootItem = fsProvider.getRootItem(rootPath);
+		XSMenuItem fsRootItem = null;
+		
+		try {
+			fsRootItem = fsProvider.getRootItem(rootPath);
+		} catch (IllegalArgumentException ex) {
+			Utils.showErrorMessage(ex.getMessage(), true);
+			XShellMenuMainClass.exitApplication(2);
+		}
 		
 		MixMenuItem rootMenu = new MixMenuItem("(root)")
 				.item(fsRootItem.getChild(MouseEvent.BUTTON3, 0)) //first item of a FS folder aux menu is always an "Open folder" action
