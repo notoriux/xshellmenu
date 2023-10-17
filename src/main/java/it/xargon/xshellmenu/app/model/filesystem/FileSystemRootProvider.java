@@ -10,7 +10,7 @@ import it.xargon.xshellmenu.XSMenuRootProvider;
 public class FileSystemRootProvider implements XSMenuRootProvider {
 	@Override
 	public XSMenuItem getRootItem(String... args) {
-		if (args.length == 0)
+		if (args == null || args.length == 0)
 			throw new IllegalArgumentException("Please provide a starting directory as first argument");
 		
 		Path basePath = Paths.get(args[0]).normalize().toAbsolutePath();
