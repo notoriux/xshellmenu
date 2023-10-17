@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.model.filesystem;
+package it.xargon.xshellmenu.model.filesystem;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -7,19 +7,19 @@ import javax.swing.Icon;
 import javax.swing.filechooser.FileSystemView;
 
 import it.xargon.xshellmenu.XSMenuItem;
-import it.xargon.xshellmenu.app.misc.Utils;
-import it.xargon.xshellmenu.app.res.Resources;
+import it.xargon.xshellmenu.misc.Utils;
+import it.xargon.xshellmenu.res.Resources;
 
-class WindowsTerminalHereMenuItem implements XSMenuItem {
+class RunAsAdministratorMenuItem implements XSMenuItem {
 	private String label;
 	
-	private Path folderItemPath;
+	private Path fileItemPath;
 	
 	private FileSystemView fsv = FileSystemView.getFileSystemView();
 	
-	public WindowsTerminalHereMenuItem(Path folderItemPath) {
-		this.folderItemPath = folderItemPath;	
-		label = "Open Windows Terminal in " + fsv.getSystemDisplayName(folderItemPath.toFile());
+	public RunAsAdministratorMenuItem(Path fileItemPath) {
+		this.fileItemPath = fileItemPath;	
+		label = "Run " + fsv.getSystemDisplayName(fileItemPath.toFile()) + " as Administrator";
 	}
 
 	@Override
@@ -34,20 +34,20 @@ class WindowsTerminalHereMenuItem implements XSMenuItem {
 
 	@Override
 	public Icon getIcon(Runnable iconReadyListener) {
-		return Resources.terminalIcon;
+		return Resources.runAsAdminIcon;
 	}
 
 	@Override
 	public Runnable getAction() {
-		return () -> {		
+		return () -> {
 			Resources.internalTaskScheduler.execute(() -> {
 				try {
 					Runtime rt = Runtime.getRuntime();
-					String[] cmdSpec = {"wt","-d",folderItemPath.toString()};
-					rt.exec(cmdSpec, null, folderItemPath.toFile());
+					String[] cmdSpec = {"powershell", "Start-Process", "-verb", "RunAs", "-WorkingDirectory", "'" + fileItemPath.getParent().toString() + "'", "-FilePath", "'" + fileItemPath.getFileName() + "'"};
+					rt.exec(cmdSpec);
 				} catch (IOException e) {
 					e.printStackTrace();
-					Utils.showErrorMessage("Error starting Windows Terminal in " + folderItemPath.toString() + "\n\n" + e.getMessage(), false);
+					Utils.showErrorMessage("Error running " + fileItemPath.toString() + " as Administrator\n\n" + e.getMessage(), false);
 				}
 			});
 		};

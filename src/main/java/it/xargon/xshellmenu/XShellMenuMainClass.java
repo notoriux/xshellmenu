@@ -7,8 +7,8 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import it.xargon.xshellmenu.app.TrayIconManager;
-import it.xargon.xshellmenu.app.misc.Utils;
+import it.xargon.xshellmenu.gui.TrayIconManager;
+import it.xargon.xshellmenu.misc.Utils;
 
 public class XShellMenuMainClass {
 	private static Object exitLock = new Object();

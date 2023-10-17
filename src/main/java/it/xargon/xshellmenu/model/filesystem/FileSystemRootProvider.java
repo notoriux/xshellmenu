@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.model.filesystem;
+package it.xargon.xshellmenu.model.filesystem;
 
 import java.nio.file.Files;
 import java.nio.file.Path;

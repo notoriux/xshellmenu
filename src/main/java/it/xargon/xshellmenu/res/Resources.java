@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.res;
+package it.xargon.xshellmenu.res;
 
 import java.awt.Image;
 import java.awt.image.BaseMultiResolutionImage;
@@ -10,7 +10,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-import it.xargon.xshellmenu.app.misc.ThemeDetector;
+import it.xargon.xshellmenu.misc.ThemeDetector;
 
 public class Resources {
 	private Resources() {}

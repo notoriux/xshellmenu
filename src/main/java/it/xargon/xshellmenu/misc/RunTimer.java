@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.misc;
+package it.xargon.xshellmenu.misc;
 
 public class RunTimer {
 	private String cl;

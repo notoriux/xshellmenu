@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app;
+package it.xargon.xshellmenu.gui;
 
 import java.awt.AWTException;
 import java.awt.SystemTray;
@@ -13,11 +13,10 @@ import javax.swing.event.MouseInputAdapter;
 import it.xargon.xshellmenu.XSMenuItem;
 import it.xargon.xshellmenu.XSMenuRootProvider;
 import it.xargon.xshellmenu.XShellMenuMainClass;
-import it.xargon.xshellmenu.app.gui.XSPopupMenu;
-import it.xargon.xshellmenu.app.misc.Utils;
-import it.xargon.xshellmenu.app.model.base.InMemoryMenuItem;
-import it.xargon.xshellmenu.app.model.base.MixMenuItem;
-import it.xargon.xshellmenu.app.res.Resources;
+import it.xargon.xshellmenu.misc.Utils;
+import it.xargon.xshellmenu.model.base.InMemoryMenuItem;
+import it.xargon.xshellmenu.model.base.MixMenuItem;
+import it.xargon.xshellmenu.res.Resources;
 
 public class TrayIconManager {
 	private XSMenuRootProvider menuProvider;

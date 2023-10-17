@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.model.base;
+package it.xargon.xshellmenu.model.base;
 
 import javax.swing.Icon;
 

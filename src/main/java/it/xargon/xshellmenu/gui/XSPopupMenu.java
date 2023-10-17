@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.gui;
+package it.xargon.xshellmenu.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -20,7 +20,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 import it.xargon.xshellmenu.XSMenuItem;
-import it.xargon.xshellmenu.app.res.Resources;
+import it.xargon.xshellmenu.res.Resources;
 
 public class XSPopupMenu extends JFrame {
 	public static enum Propagation {

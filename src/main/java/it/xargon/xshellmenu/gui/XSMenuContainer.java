@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.gui;
+package it.xargon.xshellmenu.gui;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;

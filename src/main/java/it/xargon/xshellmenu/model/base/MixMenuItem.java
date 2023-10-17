@@ -1,11 +1,11 @@
-package it.xargon.xshellmenu.app.model.base;
+package it.xargon.xshellmenu.model.base;
 
 import java.util.ArrayList;
 
 import javax.swing.Icon;
 
 import it.xargon.xshellmenu.XSMenuItem;
-import it.xargon.xshellmenu.app.res.Resources;
+import it.xargon.xshellmenu.res.Resources;
 
 public class MixMenuItem implements XSMenuItem {
 	private String label;

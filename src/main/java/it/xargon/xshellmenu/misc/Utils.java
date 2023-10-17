@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.misc;
+package it.xargon.xshellmenu.misc;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import it.xargon.xshellmenu.XShellMenuMainClass;
-import it.xargon.xshellmenu.app.model.base.InMemoryMenuItem;
+import it.xargon.xshellmenu.model.base.InMemoryMenuItem;
 
 public class Utils {
 	private Utils() {}

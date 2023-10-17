@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.gui;
+package it.xargon.xshellmenu.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,8 +13,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.event.MouseInputAdapter;
 
 import it.xargon.xshellmenu.XSMenuItem;
-import it.xargon.xshellmenu.app.model.base.InMemoryMenuItem;
-import it.xargon.xshellmenu.app.res.Resources;
+import it.xargon.xshellmenu.model.base.InMemoryMenuItem;
+import it.xargon.xshellmenu.res.Resources;
 
 public class XSMenuItemComponent extends JPanel {
 	private static final long serialVersionUID = 2267459892158068804L;

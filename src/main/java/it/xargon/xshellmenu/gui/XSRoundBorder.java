@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.gui;
+package it.xargon.xshellmenu.gui;
 
 import java.awt.BasicStroke;
 import java.awt.Color;

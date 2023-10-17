@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.model.filesystem;
+package it.xargon.xshellmenu.model.filesystem;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -7,8 +7,8 @@ import javax.swing.Icon;
 import javax.swing.filechooser.FileSystemView;
 
 import it.xargon.xshellmenu.XSMenuItem;
-import it.xargon.xshellmenu.app.misc.Utils;
-import it.xargon.xshellmenu.app.res.Resources;
+import it.xargon.xshellmenu.misc.Utils;
+import it.xargon.xshellmenu.res.Resources;
 
 class OpenFolderMenuItem implements XSMenuItem {
 	private String label;

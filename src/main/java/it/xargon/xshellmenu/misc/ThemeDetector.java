@@ -1,4 +1,4 @@
-package it.xargon.xshellmenu.app.misc;
+package it.xargon.xshellmenu.misc;
 
 import java.io.BufferedReader;
 import java.io.IOException;
