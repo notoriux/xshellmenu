@@ -1,4 +1,6 @@
-package it.xargon.xshellmenu.app.model;
+package it.xargon.xshellmenu;
+
+import java.awt.event.MouseEvent;
 
 import javax.swing.Icon;
 
@@ -8,6 +10,7 @@ public interface XSMenuItem {
 	}
 	
 	public final static int PRIMARY_MENU = 0;
+	public final static int AUXILARY_MENU = MouseEvent.BUTTON3;
 	
 	public Type getType();
 	public String getLabel();

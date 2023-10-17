@@ -6,28 +6,28 @@ import java.awt.TrayIcon;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.Map;
 
 import javax.swing.event.MouseInputAdapter;
 
+import it.xargon.xshellmenu.XSMenuItem;
+import it.xargon.xshellmenu.XSMenuRootProvider;
 import it.xargon.xshellmenu.XShellMenuMainClass;
 import it.xargon.xshellmenu.app.gui.XSPopupMenu;
 import it.xargon.xshellmenu.app.misc.Utils;
-import it.xargon.xshellmenu.app.model.XSMenuItem;
-import it.xargon.xshellmenu.app.model.XSMenuRootProvider;
 import it.xargon.xshellmenu.app.model.base.InMemoryMenuItem;
 import it.xargon.xshellmenu.app.model.base.MixMenuItem;
-import it.xargon.xshellmenu.app.model.filesystem.FileSystemRootProvider;
 import it.xargon.xshellmenu.app.res.Resources;
 
 public class TrayIconManager {
-	private String rootPath;
+	private XSMenuRootProvider menuProvider;
+	private String[] provArgs;
+
 	private SystemTray systemTray;
 	private TrayIcon trayIcon;
 	
 	private XSPopupMenu currentMenu;
-	
-	private XSMenuRootProvider fsProvider;
-	
+
 	private MouseInputAdapter mouseInputHandler = new MouseInputAdapter() {
 		@Override
 		public void mouseClicked(MouseEvent e) {
@@ -43,32 +43,47 @@ public class TrayIconManager {
 		}
 	};
 
-	public TrayIconManager(String rootPath) {
-		this.fsProvider = new FileSystemRootProvider();
-		this.rootPath = rootPath;
+	public TrayIconManager(String[] args) {
+		Map<String, XSMenuRootProvider> rootProviders = XSMenuRootProvider.getInstances();
+
+		if (rootProviders.isEmpty()) {
+			Utils.abortApplication("Error while fetching root menu", new IllegalStateException("No root provider found"));
+		}
+		
+		String provName = args[0];
+		provArgs = new String[args.length-1];
+		System.arraycopy(args, 1, provArgs, 0, provArgs.length);
+
+		this.menuProvider = rootProviders.get(provName);
 		this.systemTray = SystemTray.getSystemTray();
 		
-		this.trayIcon = new TrayIcon(Resources.appIconImage, "XShellMenu 0.0.4 - " + rootPath);
+		this.trayIcon = new TrayIcon(Resources.appIconImage, "XShellMenu 0.0.5 - " + this.menuProvider.getName() + " - " + provArgs[0]);
 		this.trayIcon.setImageAutoSize(true);
 		this.trayIcon.addMouseListener(mouseInputHandler);
 	}
 	
 	private XSPopupMenu generateRootMenu() {
-		XSMenuItem fsRootItem = null;
+		XSMenuItem rootItem = null;
 		
 		try {
-			fsRootItem = fsProvider.getRootItem(rootPath);
+			rootItem = menuProvider.getRootItem(provArgs);
 		} catch (IllegalArgumentException ex) {
-			Utils.showErrorMessage(ex.getMessage(), true);
-			XShellMenuMainClass.exitApplication(2);
+			Utils.abortApplication("Error while fetching root menu", ex);
 		}
 		
-		MixMenuItem rootMenu = new MixMenuItem("(root)")
-				.item(fsRootItem.getChild(MouseEvent.BUTTON3, 0)) //first item of a FS folder aux menu is always an "Open folder" action
-				.separator()
-				.children(fsRootItem, XSMenuItem.PRIMARY_MENU)
+		MixMenuItem rootMenu = new MixMenuItem(rootItem.getLabel());
+		
+		int auxCnt = rootItem.countChildren(XSMenuItem.AUXILARY_MENU);
+		if (auxCnt > 0) { //Brings all the aux items as header in the root menu
+			for (int i = 0; i < auxCnt; i++)
+				rootMenu = rootMenu.item(rootItem.getChild(XSMenuItem.AUXILARY_MENU, i));
+			rootMenu = rootMenu.separator();
+		}
+		
+		rootMenu = rootMenu.children(rootItem, XSMenuItem.PRIMARY_MENU)
 				.separator()
 				.item(new InMemoryMenuItem("Quit", Resources.quitIcon, "Closes XShellMenu", this::closeTay));
+		
 		XSPopupMenu popupMenu = new XSPopupMenu(null, rootMenu, XSMenuItem.PRIMARY_MENU);
 		return popupMenu;
 	}

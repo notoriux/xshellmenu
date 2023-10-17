@@ -1,6 +1,5 @@
 package it.xargon.xshellmenu.app.model.filesystem;
 
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.nio.file.DirectoryStream;
@@ -13,9 +12,9 @@ import java.util.Comparator;
 import javax.swing.Icon;
 import javax.swing.filechooser.FileSystemView;
 
+import it.xargon.xshellmenu.XSMenuItem;
 import it.xargon.xshellmenu.app.misc.Utils;
 import it.xargon.xshellmenu.app.misc.Utils.OperatingSystem;
-import it.xargon.xshellmenu.app.model.XSMenuItem;
 import it.xargon.xshellmenu.app.res.Resources;
 
 class FileSystemMenuItem implements XSMenuItem {
@@ -166,7 +165,7 @@ class FileSystemMenuItem implements XSMenuItem {
 		if (menuId == XSMenuItem.PRIMARY_MENU) {
 			ArrayList<Path> containedPaths=getContainedPaths();
 			return (containedPaths == null) ? 0 : containedPaths.size();
-		} else if (menuId == MouseEvent.BUTTON3) {
+		} else if (menuId == XSMenuItem.AUXILARY_MENU) {
 			return getAuxMenu().size();
 		}
 		
@@ -180,7 +179,7 @@ class FileSystemMenuItem implements XSMenuItem {
 		if (menuId == XSMenuItem.PRIMARY_MENU) {
 			ArrayList<FileSystemMenuItem> containedItems=getContainedItems();
 			return (containedItems == null) ? null : containedItems.get(index);
-		} else if (menuId == MouseEvent.BUTTON3) {
+		} else if (menuId == XSMenuItem.AUXILARY_MENU) {
 			return getAuxMenu().get(index);
 		}
 		

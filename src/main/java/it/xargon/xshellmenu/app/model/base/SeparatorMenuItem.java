@@ -2,7 +2,7 @@ package it.xargon.xshellmenu.app.model.base;
 
 import javax.swing.Icon;
 
-import it.xargon.xshellmenu.app.model.XSMenuItem;
+import it.xargon.xshellmenu.XSMenuItem;
 
 public class SeparatorMenuItem implements XSMenuItem {
 	@Override

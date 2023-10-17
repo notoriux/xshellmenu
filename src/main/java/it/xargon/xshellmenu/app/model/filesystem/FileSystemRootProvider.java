@@ -4,8 +4,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import it.xargon.xshellmenu.app.model.XSMenuItem;
-import it.xargon.xshellmenu.app.model.XSMenuRootProvider;
+import it.xargon.xshellmenu.XSMenuItem;
+import it.xargon.xshellmenu.XSMenuRootProvider;
 
 public class FileSystemRootProvider implements XSMenuRootProvider {
 	@Override
@@ -19,5 +19,10 @@ public class FileSystemRootProvider implements XSMenuRootProvider {
 			throw new IllegalArgumentException("\"" + basePath.toString() + "\" does not exist or it's not a directory on the local filesystem");
 		
 		return new FileSystemMenuItem(basePath);
+	}
+	
+	@Override
+	public String getName() {
+		return "FileSystem";
 	}
 }

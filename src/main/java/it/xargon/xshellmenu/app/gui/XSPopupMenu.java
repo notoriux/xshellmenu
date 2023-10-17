@@ -19,7 +19,7 @@ import javax.swing.JViewport;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
-import it.xargon.xshellmenu.app.model.XSMenuItem;
+import it.xargon.xshellmenu.XSMenuItem;
 import it.xargon.xshellmenu.app.res.Resources;
 
 public class XSPopupMenu extends JFrame {

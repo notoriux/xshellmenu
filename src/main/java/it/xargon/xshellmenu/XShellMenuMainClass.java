@@ -53,13 +53,13 @@ public class XShellMenuMainClass {
 			return;
 		}
 
-		if (args.length == 0) {
-			Utils.showErrorMessage("Please provide a starting directory as first argument", true);
+		if (args.length < 2) {
+			Utils.showErrorMessage("Need a menu provider name and an initalization string", true);
 			exitApplication(2);
 			return;			
 		}
 
-		menuManager = new TrayIconManager(args[0]);
+		menuManager = new TrayIconManager(args);
 		initialized = true;
 	}
 	

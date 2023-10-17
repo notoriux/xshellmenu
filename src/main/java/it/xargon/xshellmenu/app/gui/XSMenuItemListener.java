@@ -1,6 +1,6 @@
 package it.xargon.xshellmenu.app.gui;
 
-import it.xargon.xshellmenu.app.model.XSMenuItem;
+import it.xargon.xshellmenu.XSMenuItem;
 
 public interface XSMenuItemListener {
 	public void mouseEntered(XSMenuItem item);

@@ -12,7 +12,7 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.MouseInputAdapter;
 
-import it.xargon.xshellmenu.app.model.XSMenuItem;
+import it.xargon.xshellmenu.XSMenuItem;
 import it.xargon.xshellmenu.app.model.base.InMemoryMenuItem;
 import it.xargon.xshellmenu.app.res.Resources;
 

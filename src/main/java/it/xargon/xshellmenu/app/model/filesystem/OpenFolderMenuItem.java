@@ -6,8 +6,8 @@ import java.nio.file.Path;
 import javax.swing.Icon;
 import javax.swing.filechooser.FileSystemView;
 
+import it.xargon.xshellmenu.XSMenuItem;
 import it.xargon.xshellmenu.app.misc.Utils;
-import it.xargon.xshellmenu.app.model.XSMenuItem;
 import it.xargon.xshellmenu.app.res.Resources;
 
 class OpenFolderMenuItem implements XSMenuItem {
