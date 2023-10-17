@@ -55,6 +55,11 @@ public class TrayIconManager {
 		System.arraycopy(args, 1, provArgs, 0, provArgs.length);
 
 		this.menuProvider = rootProviders.get(provName);
+		
+		if (this.menuProvider == null) {
+			Utils.abortApplication("Error while fetching root menu", new IllegalStateException("Provider \"" + provName + "\" nots found"));
+		}
+		
 		this.systemTray = SystemTray.getSystemTray();
 		
 		this.trayIcon = new TrayIcon(Resources.appIconImage, "XShellMenu 0.0.5 - " + this.menuProvider.getName() + " - " + provArgs[0]);
