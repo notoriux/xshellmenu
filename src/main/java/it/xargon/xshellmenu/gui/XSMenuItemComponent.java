@@ -52,7 +52,6 @@ public class XSMenuItemComponent extends JPanel {
 	};
 	
 	public XSMenuItemComponent() {
-		super();
 		InMemoryMenuItem iMenuItem = new InMemoryMenuItem("Menu item text", Resources.genericIcon);
 		iMenuItem.addChild("Fake child");
 		this.menuItem = iMenuItem;

@@ -13,7 +13,6 @@ public class XSMenuContainer extends JPanel {
 	private int itemCount = 0;
 
 	public XSMenuContainer() {
-		super();
 		setLayout(new GridBagLayout());
 	}
 	
