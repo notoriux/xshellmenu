@@ -86,13 +86,13 @@ public class TrayIconManager {
 		
 		rootMenu = rootMenu.children(rootItem, XSMenuItem.PRIMARY_MENU)
 				.separator()
-				.item(new InMemoryMenuItem("Quit", Resources.quitIcon, "Closes XShellMenu", this::closeTay));
+				.item(new InMemoryMenuItem("Quit", Resources.quitIcon, "Closes XShellMenu", this::closeTray));
 		
 		XSPopupMenu popupMenu = new XSPopupMenu(null, rootMenu, XSMenuItem.PRIMARY_MENU);
 		return popupMenu;
 	}
 	
-	private void closeTay() {
+	private void closeTray() {
 		systemTray.remove(trayIcon);
 		XShellMenuMainClass.exitApplication(0);
 	}
