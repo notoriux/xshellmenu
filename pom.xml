@@ -2,37 +2,18 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>it.xargon.gadgets</groupId>
   <artifactId>xshellmenu</artifactId>
-  <version>0.0.5</version>
-  <packaging>jar</packaging>
+  <version>0.0.6</version>
+  <packaging>pom</packaging>
   
   <properties>
 	  <maven.compiler.target>17</maven.compiler.target>
 	  <maven.compiler.source>17</maven.compiler.source>
 	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+  </properties>  
   
-  <build>
-	  <finalName>xshellmenu</finalName>
-	  <plugins>
-		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-compiler-plugin</artifactId>
-			<version>3.11.0</version>
-		</plugin>
-		<plugin>
-		    <groupId>org.apache.maven.plugins</groupId>
-    		<artifactId>maven-jar-plugin</artifactId>
-    		<version>3.3.0</version>
-    		<configuration>
-				<archive>
-	                <manifest>
-	                    <mainClass>
-	                        it.xargon.xshellmenu.XShellMenuMainClass
-	                    </mainClass>
-	                </manifest>					
-				</archive>
-			</configuration>
-		</plugin>
-	  </plugins>
-  </build>
+  <modules>
+    <module>xshellmenu-api</module>
+    <module>xshellmenu-gui</module>
+    <module>xshellmenu-filesystemprovider</module>
+  </modules>
 </project>
